@@ -61,6 +61,7 @@ void displayList(struct Node* head) {
     printf("NULL\n");
 }
 
+// Function to find middle node
 void findMiddle(struct Node* head) {
     struct Node* slow = head;
     struct Node* fast = head;
