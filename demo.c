@@ -61,7 +61,23 @@ void displayList(struct Node* head) {
     printf("NULL\n");
 }
 
+// Function to find middle node
+void findMiddle(struct Node* head) {
+    struct Node* slow = head;
+    struct Node* fast = head;
 
+    if (head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    printf("Middle node: %d\n", slow->data);
+}
 // Main function
 int main() {
     struct Node* head = NULL;
@@ -72,12 +88,11 @@ int main() {
     insertEnd(&head, 40);
 
     printf("Linked List: ");
-    
     displayList(head);
 
     deleteNode(&head, 20);
     printf("After deleting 20: ");
     displayList(head);
-    //findMiddle(head);
+    findMiddle(head);
     return 0;
 }
